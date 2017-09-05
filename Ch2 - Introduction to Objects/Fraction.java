@@ -33,10 +33,41 @@ public class Fraction {
     }
 
     public Fraction add(Fraction another){
+        return performOperation(another, Operation.ADDITION);
+    }
+
+    public Fraction subtract(Fraction another){
+        return performOperation(another, Operation.SUBTRACTION);
+    }
+
+    public Fraction multiply(Fraction another){
+        return performOperation(another, Operation.MULTIPLICATION);
+    }
+
+    public Fraction divide(Fraction another){
+        return another.multiply(this);
+    }
+
+    private Fraction performOperation(Fraction another, Operation operation){
         int highestCommonFactor = getHighestCommonFactor(another);
 
-        int numerator = (another.denominator / highestCommonFactor) * this.numerator +
-                (this.denominator / highestCommonFactor) * another.numerator;
+        int leftNumerator = (another.denominator / highestCommonFactor) * this.numerator;
+        int rightNumerator = (this.denominator / highestCommonFactor) * another.numerator;
+
+        int numerator = 0;
+        switch (operation){
+            case ADDITION:
+                numerator = leftNumerator + rightNumerator;
+                break;
+            case SUBTRACTION:
+                numerator = leftNumerator - rightNumerator;
+                break;
+            case MULTIPLICATION:
+                numerator = leftNumerator * rightNumerator;
+                break;
+        }
+        assert numerator != 0;
+
         int denominator = this.denominator > another.denominator ? this.denominator : another.denominator;
 
         return new Fraction(numerator, denominator);
@@ -87,9 +118,6 @@ public class Fraction {
 
     @Override
     public String toString() {
-        return getClass().getName() + "{" +
-                "numerator=" + numerator +
-                ", denominator=" + denominator +
-                '}';
+        return numerator + "/" + denominator;
     }
 }
