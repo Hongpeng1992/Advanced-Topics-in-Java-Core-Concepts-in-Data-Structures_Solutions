@@ -1,0 +1,2 @@
+Write an instance method to reverse the nodes of a linked list by creating a new list. The
+method returns the newly created list.

@@ -1,0 +1,2 @@
+Write an instance method in the _3_1.LinkedList class that returns true if the list is sorted in
+ascending order and false otherwise.

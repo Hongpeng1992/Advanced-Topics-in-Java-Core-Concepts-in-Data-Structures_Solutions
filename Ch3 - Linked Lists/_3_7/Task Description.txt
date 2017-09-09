@@ -1,0 +1,2 @@
+Write a function that, given a pointer to a linked list of bits stored as in 6th exercise, traverses the list
+once and returns the decimal equivalent of the binary number.

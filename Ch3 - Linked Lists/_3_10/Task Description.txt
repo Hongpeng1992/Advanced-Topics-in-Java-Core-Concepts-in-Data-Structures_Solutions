@@ -1,0 +1,8 @@
+Two words are anagrams if one word can be formed by rearranging all the letters of the other
+word, for example: treason, senator. A word is represented as a linked list with one letter per
+node of the list.
+
+Write a function that, given w1 and w2, with each pointing to a word of lowercase letters,
+returns 1 if the words are anagrams and 0 if they are not. Base your algorithm on the
+following: for each letter in w1, search w2 for it; if found, delete it and continue; otherwise,
+return 0.

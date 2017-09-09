@@ -1,0 +1,4 @@
+The digits of an integer are held on a linked list in reverse order, one digit per node. Write a
+function that, given pointers to two integers, performs a digit-by-digit addition and returns
+a pointer to the digits of the sum stored in reverse order. Note: this idea can be used to add
+arbitrarily large integers.

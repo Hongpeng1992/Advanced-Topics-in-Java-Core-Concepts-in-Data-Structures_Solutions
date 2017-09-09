@@ -1,0 +1,6 @@
+Write a method to sort a linked list of integers as follows:
+(a) Find the largest value in the list.
+(b) D elete it from its position and insert it at the head of the list.
+(c) S tarting from what is now the second element, repeat (a) and (b).
+(d) S tarting from what is now the third element, repeat (a) and (b).
+Continue until the list is sorted.
