@@ -1,4 +1,4 @@
-package _3_6;
+package _3_04;
 
 public class LinkedList {
     Node head = null;
@@ -12,10 +12,6 @@ public class LinkedList {
     public void addTail(NodeData nodeData){
         Node curr = head;
         Node prev = null;
-        if(curr == null) {
-            addHead(nodeData);
-            return;
-        }
         while (curr != null) {
             prev = curr;
             curr = curr.next;
@@ -25,17 +21,44 @@ public class LinkedList {
     }
 
     /**
-     * Stores binary format of the given parameter in the linked list
-     * @param number to be converted to binary format
+     * Inserts integer after the specified element
+     * @param n node value to pass to the inserted node
+     * @param j specifies position of node after which the new node is to be inserted
      */
-    public void setBinaryLinkedList(int number){
-        head = null;
+    public void insert(int n, int j){
+        if(j == 0)
+            addHead(new NodeData(n));
+        if(j > length())
+            addTail(new NodeData(n));
+
         Node curr = head;
-        do{
-            int bitToStore = number % 2;
-            number /= 2;
-            addTail(new NodeData(bitToStore));
-        }while(number > 0);
+
+        //j == 0 is already covered above
+        Node prev = curr;
+        curr = curr.next;
+        int count = 1;
+        while(curr != null) {
+
+            if(count == j)
+            {
+                Node newNode = new Node(new NodeData(n));
+                prev.next = newNode;
+                newNode.next = curr;
+            }
+            count++;
+            prev = curr;
+            curr = curr.next;
+        }
+    }
+
+    public int length(){
+        Node curr = head;
+        int countOfNodes = 0;
+        while(curr != null){
+            countOfNodes++;
+            curr = curr.next;
+        }
+        return countOfNodes;
     }
 
     @Override

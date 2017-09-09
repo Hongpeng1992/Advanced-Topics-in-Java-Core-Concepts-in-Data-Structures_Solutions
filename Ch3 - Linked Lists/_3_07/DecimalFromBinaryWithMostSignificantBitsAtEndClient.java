@@ -1,4 +1,4 @@
-package _3_7;
+package _3_07;
 
 public class DecimalFromBinaryWithMostSignificantBitsAtEndClient {
     public static void main(String[] args) {

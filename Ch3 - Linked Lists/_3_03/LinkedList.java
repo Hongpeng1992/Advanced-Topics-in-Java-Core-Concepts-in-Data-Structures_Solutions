@@ -1,4 +1,4 @@
-package _3_3;
+package _3_03;
 
 public class LinkedList {
     private Node head = null;

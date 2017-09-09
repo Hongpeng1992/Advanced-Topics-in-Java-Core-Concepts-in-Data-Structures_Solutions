@@ -1,4 +1,4 @@
-package _3_2;
+package _3_01;
 
 public class LinkedList {
     Node head = null;
@@ -9,15 +9,17 @@ public class LinkedList {
         head = node;
     }
 
-    public LinkedList getReversedLinkedList(){
-        LinkedList reversed = new LinkedList();
-
+    public boolean isSortedInAscendingOrder(){
+        Node prev = null;
         Node curr = head;
+
         while(curr != null){
-            reversed.addHead(curr.dataData);
+            if(prev != null && curr.dataData.compareTo(prev.dataData) < 0)
+                return false;
+            prev = curr;
             curr = curr.next;
         }
-        return reversed;
+        return true;
     }
 
     @Override

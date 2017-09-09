@@ -1,4 +1,6 @@
-package _3_4;
+package _3_07;
+
+import java.util.NoSuchElementException;
 
 public class LinkedList {
     Node head = null;
@@ -12,6 +14,10 @@ public class LinkedList {
     public void addTail(NodeData nodeData){
         Node curr = head;
         Node prev = null;
+        if(curr == null) {
+            addHead(nodeData);
+            return;
+        }
         while (curr != null) {
             prev = curr;
             curr = curr.next;
@@ -21,44 +27,39 @@ public class LinkedList {
     }
 
     /**
-     * Inserts integer after the specified element
-     * @param n node value to pass to the inserted node
-     * @param j specifies position of node after which the new node is to be inserted
+     * sets linked list to binary format of the given parameter
+     * @param number to be converted to binary format
      */
-    public void insert(int n, int j){
-        if(j == 0)
-            addHead(new NodeData(n));
-        if(j > length())
-            addTail(new NodeData(n));
-
+    public void setBinaryLinkedList(int number){
+        head = null;
         Node curr = head;
-
-        //j == 0 is already covered above
-        Node prev = curr;
-        curr = curr.next;
-        int count = 1;
-        while(curr != null) {
-
-            if(count == j)
-            {
-                Node newNode = new Node(new NodeData(n));
-                prev.next = newNode;
-                newNode.next = curr;
-            }
-            count++;
-            prev = curr;
-            curr = curr.next;
-        }
+        do{
+            int bitToStore = number % 2;
+            number /= 2;
+            addTail(new NodeData(bitToStore));
+        }while(number > 0);
     }
 
-    public int length(){
+
+    /**
+     * returns decimal representation of the binary store in this linked list
+     */
+    public int getDecimalRepresentation(){
+        if(head == null)
+            throw new NoSuchElementException("The linked list is empty.");
         Node curr = head;
-        int countOfNodes = 0;
+
+        int decimal = 0;
+        int powerCount = 0;
+        int multiplier;
         while(curr != null){
-            countOfNodes++;
+            multiplier = (int) Math.pow(2, powerCount);
+            decimal += curr.dataData.data * multiplier;
+
+            powerCount++;
             curr = curr.next;
         }
-        return countOfNodes;
+        return decimal;
     }
 
     @Override

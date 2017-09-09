@@ -1,6 +1,4 @@
-package _3_7;
-
-import java.util.NoSuchElementException;
+package _3_06;
 
 public class LinkedList {
     Node head = null;
@@ -27,7 +25,7 @@ public class LinkedList {
     }
 
     /**
-     * sets linked list to binary format of the given parameter
+     * Stores binary format of the given parameter in the linked list
      * @param number to be converted to binary format
      */
     public void setBinaryLinkedList(int number){
@@ -38,28 +36,6 @@ public class LinkedList {
             number /= 2;
             addTail(new NodeData(bitToStore));
         }while(number > 0);
-    }
-
-
-    /**
-     * returns decimal representation of the binary store in this linked list
-     */
-    public int getDecimalRepresentation(){
-        if(head == null)
-            throw new NoSuchElementException("The linked list is empty.");
-        Node curr = head;
-
-        int decimal = 0;
-        int powerCount = 0;
-        int multiplier;
-        while(curr != null){
-            multiplier = (int) Math.pow(2, powerCount);
-            decimal += curr.dataData.data * multiplier;
-
-            powerCount++;
-            curr = curr.next;
-        }
-        return decimal;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package _3_4;
+package _3_04;
 
 public class InsertNodeIntoLinkedListClient {
     public static void main(String[] args) {
