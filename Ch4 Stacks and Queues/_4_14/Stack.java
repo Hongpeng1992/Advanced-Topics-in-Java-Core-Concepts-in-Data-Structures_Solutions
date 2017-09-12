@@ -32,7 +32,7 @@ public class Stack {
     }
 
     /**
-     * Sorts the stack
+     * Sorts stack content
      */
     public void sort(){
         if(isEmpty())
@@ -48,15 +48,18 @@ public class Stack {
                 poppedFromFirstStack++;
             }
             if (poppedFromFirstStack < totalElements && this.peek() < auxiliary.peek()) {
+                //swap stack elements
                 int temp = auxiliary.pop();
                 auxiliary.push(pop());
                 push(temp);
             }
             if(poppedFromFirstStack == totalElements){
+                //return all auxiliary stack elements to the base one
                 while (poppedFromFirstStack > 0) {
                     push(auxiliary.pop());
                     poppedFromFirstStack--;
                 }
+                //increment passing stack element
                 currentStackElement++;
             }
         }
