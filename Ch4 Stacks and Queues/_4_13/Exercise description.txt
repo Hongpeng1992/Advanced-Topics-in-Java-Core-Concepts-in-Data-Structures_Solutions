@@ -1,0 +1,9 @@
+a priority queue is one in which items are added to the queue based on a priority number.
+Jobs with higher-priority numbers are closer to the head of the queue than those with lowerpriority
+numbers. a job is added to the queue in front of all jobs of lower priority but after all
+jobs of greater or equal priority.
+Write classes to implement a priority queue. each item in the queue has a job number
+(integer) and a priority number. Implement, at least, the following: (i) add a job in its
+appropriate place in the queue, (ii) delete the job at the head of the queue, and (iii) given a job
+number, remove that job from the queue.
+ensure your methods work regardless of the state of the queue.

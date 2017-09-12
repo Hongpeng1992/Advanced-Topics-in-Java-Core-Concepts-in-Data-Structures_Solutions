@@ -1,0 +1,1 @@
+Write declarations/functions to implement a stack of double values.
